@@ -50,3 +50,8 @@
 .landing {
   background-color: lightcyan;
 }
+
+body {
+  height: 100vh;
+  background-color: lightcyan;
+}
