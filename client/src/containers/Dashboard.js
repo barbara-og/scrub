@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import TweetsView from "../components/TweetsView";
 
-function Dashboard(selectedFile, setSelectedFile) {
+function Dashboard() {
   function tester() {
-    console.log("dashboard selected file", selectedFile);
+    //console.log("dashboard selected file", selectedFile);
   }
   return (
     <div style={{ display: "flex" }}>

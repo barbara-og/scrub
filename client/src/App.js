@@ -5,7 +5,7 @@ import LandingPage from "./containers/LandingPage";
 import Dashboard from "./containers/Dashboard";
 
 function App() {
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   return (
     <div>
       <div className="banner">
@@ -15,20 +15,20 @@ function App() {
         <Route
           exact
           path="/"
-          render={(selectedFile, setSelectedFile) => (
+          render={() => (
             <LandingPage
-              selectedFile={selectedFile}
-              setSelectedFile={setSelectedFile}
+            // selectedFile={selectedFile}
+            // setSelectedFile={setSelectedFile}
             />
           )}
         />
         <Route
           exact
           path="/dashboard"
-          render={(selectedFile, setSelectedFile) => (
+          render={() => (
             <Dashboard
-              selectedFile={selectedFile}
-              setSelectedFile={setSelectedFile}
+            // selectedFile={selectedFile}
+            // setSelectedFile={setSelectedFile}
             />
           )}
         />

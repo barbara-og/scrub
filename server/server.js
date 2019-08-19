@@ -1,20 +1,29 @@
 const express = require("express");
 const app = express();
-// const mongoose = require("mongoose");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
-// const upload = require("./upload");
+app.use(cors({ credentials: true, origin: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-//connect mongoose & display errors if any
-// mongoose.connect(process.env.MONGODB_URI);
-// mongoose.connection.on("error", function(err) {
-//   console.log("Mongoose connection error: " + err);
-// });
-app.use(cors);
+//Store text from file
+let tweets;
 
 app.post("/upload", (req, res) => {
-  //upload functionality
+  //req.body.fileContent.part0 contains an object with keys 0,1,2 etc whose values are tweet-objects
+  //console.log("filecontent", req.body.fileContent);
+  tweets = req.body.fileContent.part0;
+  if (tweets) {
+    return res.send({ success: true });
+  } else {
+    return res.send({ success: false });
+  }
 });
+app.get("/alltweets", (req, res) => {
+  res.send({ success: true, tweets: tweets });
+});
+
 //set express server to listen on port 4000
 app.listen(4000, () => {
   console.log("Server listening on port 4000!");

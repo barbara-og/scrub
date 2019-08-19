@@ -1,0 +1,29 @@
+app.post("/upload", (req, res) => {
+  //upload functionality
+  // expect req.body.fileContent to contain text of file
+  // console.log("fileContent", req.body.fileContent);
+  // tweets = JSON.stringify(
+  //   tweets.content.split("window.YTD.tweet.part0")[1].slice(2)
+  // );
+  // const split = req.body.fileContent.split(" ");
+  // const index = split.indexOf("favorite_count:") + 1;
+  // const valueIActuallyFreakingWant = str.replace(/[^0-9 ]/g, "");
+  // name.replace(/[^a-zA-Z0-9 ]/g, "");
+  if (tweets) {
+    return res.send({ success: true });
+  } else {
+    return res.send({ success: false });
+  }
+});
+
+
+
+function readVal(keyString, split) {
+  //helper to read values of keys on a tweet for displaying on front end
+  const index = split.indexOf(keyString) + 1;
+  // console.log("split", split);
+  const valueIActuallyFreakingWant = split[index].replace(/[^0-9 ]/g, "");
+  // name.replace(/[^a-zA-Z0-9 ]/g, ""); for trimming alphanumeric values
+
+  return valueIActuallyFreakingWant;
+}
